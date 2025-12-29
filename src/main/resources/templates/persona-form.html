@@ -1,0 +1,23 @@
+<form th:action="@{/personas}" th:object="${persona}" method="post"> <!-- formulario toma los datos de la persona que quiera registrar y los envía a la dirección /personas -->
+    <input type="hidden" th:field="*{id}" /> <!-- Campo oculto para el ID -->
+
+    <div>
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" required/> <!-- Input para nombre -->
+    </div>
+
+    <div>
+        <label>Apellidos:</label>
+        <input type="text" th:field="*{apellido}" required /> <!-- Input para apellido -->
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required/> <!-- Input para email -->
+    </div>
+
+    <hr> <!-- Separador visual -->
+
+    <button type="submit">Registrar</button> <!-- Botón para guardar formulario -->
+    <!--- <button type="submit">Atras</button> Botón de retroceso -->
+</form>

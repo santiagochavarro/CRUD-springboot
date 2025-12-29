@@ -1,0 +1,51 @@
+<!doctype html> <!-- Documento HTML5 -->
+<html xmlns:th="http://www.thymeleaf.org" lang="es"> <!-- HTML con Thymeleaf -->
+<head>
+    <meta charset="utf-8"> <!-- Codificación UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Lista de participantes</title>
+</head>
+<body>
+    <header> 
+        <div>
+            <h3>Gran Sorteo</h3> 
+            <nav> 
+                <a th:href="@{/}">Home</a> <!-- Enlace a inicio -->
+                <a th:href="@{/personas}">Lista de Participantes</a> <!-- Enlace a lista de participantes -->
+                <a th:href="@{/personas/nuevo}">Registrarme</a> <!-- Enlace a registro -->
+            </nav>
+        </div>
+    </header>
+
+    <main> 
+        <h2>Lista de Participantes</h2> 
+        <div>
+            <table border="1"> <!-- Tabla -->
+                <thead>
+                    <tr>
+                        <th>ID</th> 
+                        <th>Nombre</th> 
+                        <th>Apellidos</th> 
+                        <th>Email</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="persona : ${personas}"> <!-- “each Crea una fila en la tabla por cada persona que haya en la lista -->
+                        <td th:text="${persona.id}"></td>
+                        <td th:text="${persona.nombre}"></td> 
+                        <td th:text="${persona.apellido}"></td>
+                        <td th:text="${persona.email}"></td> 
+                        <td>
+                            <a th:href="@{/personas/editar/{id}(id=${persona.id})}">Editar</a> <!-- Enlace para editar -->
+                            <a th:href="@{/personas/eliminar/{id}(id=${persona.id})}">Eliminar</a> <!-- Enlace para eliminar -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <p><a th:href="@{/personas/nuevo}">Registrar nuevo participante</a></p> <!-- Enlace para agregar participante -->
+
+</body>
+</html>

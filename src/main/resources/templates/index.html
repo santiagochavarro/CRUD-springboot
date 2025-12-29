@@ -1,0 +1,20 @@
+<!doctype html> 
+<html xmlns:th="http://www.thymeleaf.org" lang="es"> <!-- HTML con soporte Thymeleaf -->
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Gran Sorteo - Bicicleta</title> 
+</head>
+<body>
+    <header>
+        <div>
+            <h3>Gran Sorteo</h3> 
+            <nav> 
+                <a href="#">Home</a> <!-- Enlace a la página principal -->
+                <a th:href="@{/personas}">Lista de Participantes</a> <!-- Enlace a la lista de participantes usando Thymeleaf -->
+                <a th:href="@{/personas/nuevo}">Registrarme</a> <!-- Enlace al formulario de registro usando Thymeleaf -->
+            </nav>
+        </div>
+    </header>
+</body>
+</html>

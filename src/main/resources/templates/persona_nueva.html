@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es"> 
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Persona</title>
+</head>
+<body>
+
+    <h1>Registro de Persona</h1> 
+
+    <form th:action="@{/personas}" th:object="${persona}" method="post"> <!-- formulario toma los datos de la persona que quiera registrar y los envía a la dirección /personas -->
+        <input type="hidden" th:field="*{id}" /> <!-- Campo oculto para el ID de la persona -->
+
+        <div>
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" required> <!-- Input para el nombre -->
+        </div>
+
+        <div>
+            <label>Apellido:</label>
+            <input type="text" th:field="*{apellido}" required> <!-- Input para el apellido -->
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" required> <!-- Input para el email -->
+        </div>
+
+        <br>
+        <button type="submit">Guardar</button> <!-- Botón guardar formulario -->
+    </form>
+
+    <br>
+    <a th:href="@{/personas}">Volver a la lista</a> <!-- Enlace a la lista de personas -->
+
+</body>
+</html>
